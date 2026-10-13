@@ -53,3 +53,5 @@ The map loads public charging sites in South Africa from the Open Charge Map API
 3. Paste it into `assets/js/config.js` as `ocmKey: "your-key"` and commit.
 
 Without a key the section shows Open Charge Map's own embedded map instead. "Status" is the last reported working state, not live free/busy occupancy; South African networks don't publish occupancy openly.
+
+When you change a CSS or JS file, bump the `?v=` number on its link in the HTML so browsers fetch the new copy.
