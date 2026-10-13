@@ -11,6 +11,8 @@ Website for Ohmpere: a static site (plain HTML, CSS and JavaScript, no build ste
 | `404.html` | Page shown for broken links |
 | `assets/css/site.css` | All styles. Brand colours are at the top as CSS variables |
 | `assets/js/site.js` | Mobile menu, charge estimator maths, contact form |
+| `assets/js/charger-map.js` | South African charger map (Open Charge Map data, Type 2 and CCS2 only) |
+| `assets/js/config.js` | Site settings: the Open Charge Map API key goes here |
 | `assets/img/brand/` | Logos from the Ohmpere brand package |
 | `assets/img/icons/` | Favicons and app icons |
 | `assets/img/og.png` | Preview image used when the link is shared |
@@ -41,3 +43,13 @@ DNS for ohmpere.com is managed at Squarespace Domains. Website records:
 | CNAME | www | charlieza.github.io |
 
 Leave the iCloud Mail records (MX, TXT/SPF, DKIM) alone; they run email on the domain.
+
+## Charger map
+
+The map loads public charging sites in South Africa from the Open Charge Map API each time the page opens, and shows only Type 2 (AC) and CCS2 (DC) sites. It needs a free API key:
+
+1. Sign in at https://openchargemap.org (any account works).
+2. Go to My profile → API keys and create a key.
+3. Paste it into `assets/js/config.js` as `ocmKey: "your-key"` and commit.
+
+Without a key the section shows Open Charge Map's own embedded map instead. "Status" is the last reported working state, not live free/busy occupancy; South African networks don't publish occupancy openly.

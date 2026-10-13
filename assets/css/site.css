@@ -452,3 +452,30 @@ form label { display: block; font-weight: 600; margin-bottom: 6px; }
 .page h1 { font-size: var(--step-3); font-stretch: var(--wide); font-variation-settings: "wdth" 125; font-weight: 400; margin-bottom: 28px; max-width: 18ch; }
 .page h2 { font-size: var(--step-1); font-stretch: var(--semi); font-variation-settings: "wdth" 112; margin: 36px 0 10px; max-width: none; }
 .page ul { max-width: 64ch; padding-left: 1.2em; }
+
+/* ---------- charger map ---------- */
+.map-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 28px; margin-bottom: 16px; }
+.map-filters { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.map-filters label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: var(--step--1); min-height: 32px; }
+.map-filters input { width: 18px; height: 18px; accent-color: var(--lime); }
+.map-filters i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; }
+.key-ac { background: var(--cream); }
+.key-dc { background: var(--lime); }
+.map-meta { margin: 0; font-size: var(--step--1); color: rgba(243, 238, 223, 0.72); }
+.charger-map { height: clamp(420px, 68vh, 640px); border: 1px solid var(--rule-light); background: var(--teal-mid); }
+.charger-map.is-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+.charger-map .leaflet-tile-pane { filter: grayscale(.9) sepia(.15) brightness(.98); }
+.pin span { display: block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--teal); box-shadow: 0 0 0 1px rgba(243,238,223,.6); }
+.pin-ac span { background: var(--cream); }
+.pin-dc span { background: var(--lime); }
+.pin-off span { background: #9aa39f; opacity: .7; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { border-radius: 0; background: var(--paper); color: var(--ink); }
+.leaflet-popup-content { font-family: var(--font); font-size: 14px; line-height: 1.45; margin: 14px 16px; }
+.leaflet-popup-content strong { display: block; font-size: 15px; margin-bottom: 2px; }
+.leaflet-popup-content ul { margin: 8px 0; padding-left: 18px; }
+.leaflet-popup-content a { color: var(--teal); font-weight: 600; }
+.pop-op, .pop-src { color: var(--ink-soft); font-size: 13px; }
+.pop-st { font-size: 13px; margin-bottom: 6px; }
+.pop-st.st-100 { color: #9b2c1f; font-weight: 600; }
+.pop-st.st-50 { color: #2f6b2a; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--ink); }

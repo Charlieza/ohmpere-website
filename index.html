@@ -29,6 +29,7 @@
 <link rel="preconnect" href="https://images.pexels.com">
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="assets/css/site.css">
 
 <script type="application/ld+json">
@@ -59,6 +60,7 @@
       <a href="#calculator">Charge estimator</a>
       <a href="#hub">The hub</a>
       <a href="#drivers">Drivers</a>
+      <a href="#map">Charger map</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn-lime" href="#hosts">Host a hub</a>
@@ -403,18 +405,37 @@
       </ol>
       <div class="connectors">
         <div class="connector">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><circle class="s" cx="32" cy="32" r="26"/><circle class="s" cx="22" cy="24" r="4"/><circle class="s" cx="42" cy="24" r="4"/><circle class="s" cx="32" cy="34" r="4"/><circle class="s" cx="20" cy="42" r="3"/><circle class="s" cx="44" cy="42" r="3"/><circle class="s" cx="32" cy="48" r="3"/></svg>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path class="s" d="M18.73 14 H45.27 A24 24 0 1 1 18.73 14 Z"/><circle class="s" cx="25" cy="21" r="2.6"/><circle class="s" cx="39" cy="21" r="2.6"/><circle class="s" cx="19" cy="33" r="4.2"/><circle class="s" cx="32" cy="33" r="4.6"/><circle class="s" cx="45" cy="33" r="4.2"/><circle class="s" cx="25" cy="45.5" r="4.2"/><circle class="s" cx="39" cy="45.5" r="4.2"/></svg>
           <h3>Type 2 (AC)</h3>
           <p>22 kW bays. Your car may accept less, often 11 kW.</p>
         </div>
         <div class="connector">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path class="s" d="M10 10 H54 V34 A22 22 0 0 1 10 34 Z"/><circle class="s" cx="24" cy="24" r="3"/><circle class="s" cx="40" cy="24" r="3"/><circle class="s" cx="22" cy="48" r="6"/><circle class="s" cx="42" cy="48" r="6"/></svg>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path class="s" d="M21 7.3 H43 A20 20 0 1 1 21 7.3 Z"/><circle class="s" cx="27" cy="14" r="2.2"/><circle class="s" cx="37" cy="14" r="2.2"/><circle class="s" cx="32" cy="27" r="4"/><path class="s" d="M12 46.5 H52 V54 A9 9 0 0 1 43 63 H21 A9 9 0 0 1 12 54 Z"/><circle class="s" cx="23" cy="54.5" r="5.2"/><circle class="s" cx="41" cy="54.5" r="5.2"/></svg>
           <h3>CCS2 (DC)</h3>
           <p>60 to 120 kW fast charging for a quick top-up.</p>
         </div>
       </div>
       <p class="muted" style="margin-top:28px">The first hubs are planned for Cape Town's northern suburbs. <a href="#contact">Leave your email</a> and we'll tell you when the first one switches on.</p>
     </div>
+  </div>
+</section>
+
+<!-- CHARGER MAP -->
+<section class="section on-teal" id="map" aria-labelledby="map-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="map-title">Public chargers across South Africa.</h2>
+      <p>Type 2 and CCS2 charging sites, live from Open Charge Map. Status shows whether a charger was last reported working. Most networks don't publish free-or-busy status yet; Ohmpere hubs will.</p>
+    </div>
+    <div class="map-bar">
+      <div class="map-filters" role="group" aria-label="Filter chargers">
+        <label><input type="checkbox" id="f-ac" checked> <i class="key-ac"></i> Type 2 (AC)</label>
+        <label><input type="checkbox" id="f-dc" checked> <i class="key-dc"></i> CCS2 (DC)</label>
+        <label><input type="checkbox" id="f-ok"> Hide sites reported not working</label>
+      </div>
+      <p class="map-meta"><span id="map-count"></span> <span id="map-status">Loading chargers…</span></p>
+    </div>
+    <div id="charger-map" class="charger-map" role="region" aria-label="Map of public EV chargers in South Africa"></div>
   </div>
 </section>
 
@@ -602,6 +623,7 @@
         <li><a href="#hosts">Host a hub</a></li>
         <li><a href="#calculator">Charge estimator</a></li>
         <li><a href="#hub">The hub</a></li>
+        <li><a href="#map">Charger map</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -620,6 +642,9 @@
   </div>
 </footer>
 
+<script src="assets/js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/charger-map.js" defer></script>
 </body>
 </html>
