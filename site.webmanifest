@@ -1,0 +1,11 @@
+{
+  "name": "Ohmpere Energy",
+  "short_name": "Ohmpere",
+  "icons": [
+    { "src": "assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#102F2C",
+  "background_color": "#102F2C",
+  "display": "browser"
+}
