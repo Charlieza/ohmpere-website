@@ -1,6 +1,6 @@
 # ohmpere.com
 
-Website for Ohmpere Energy: a static site (plain HTML, CSS and JavaScript, no build step) served by GitHub Pages at https://ohmpere.com.
+Website for Ohmpere: a static site (plain HTML, CSS and JavaScript, no build step) served by GitHub Pages at https://ohmpere.com.
 
 ## Files
 
@@ -22,7 +22,7 @@ Edit a file on github.com (pencil icon) or locally, commit to `main`, and the si
 
 - **Contact email**: the site uses `hello@ohmpere.com`. It appears in `index.html` (search for `hello@`), `privacy.html` and the `data-to` attribute on the contact form. Create that address (or an alias) in iCloud custom email domain settings, or change it everywhere.
 - **Charge estimator assumptions** are constants at the top of the estimator block in `assets/js/site.js` (kWh per km, AC efficiency, DC average power). Keep the note under the estimator in `index.html` in step.
-- **Photos** are free-licence Unsplash images loaded from Unsplash's CDN, credited in the footer. Replace them with photos of real Ohmpere hubs once they exist.
+- **Photos** are free-licence Unsplash and Pexels images loaded from their CDNs, credited in the footer. Replace them with photos of real Ohmpere hubs once they exist.
 
 ## Fonts
 

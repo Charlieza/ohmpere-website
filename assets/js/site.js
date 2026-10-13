@@ -1,4 +1,4 @@
-/* Ohmpere Energy site behaviour: menu, charge estimator, contact form. */
+/* Ohmpere site behaviour: menu, charge estimator, contact form. */
 (function () {
   "use strict";
 
