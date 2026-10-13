@@ -11,7 +11,7 @@ Website for Ohmpere: a static site (plain HTML, CSS and JavaScript, no build ste
 | `404.html` | Page shown for broken links |
 | `assets/css/site.css` | All styles. Brand colours are at the top as CSS variables |
 | `assets/js/site.js` | Mobile menu, charge estimator maths, contact form |
-| `assets/js/charger-map.js` | South African charger map (Open Charge Map data, Type 2 and CCS2 only) |
+| `assets/js/charger-map.js` | South African charger map (Open Charge Map data, all connector types) |
 | `assets/js/config.js` | Site settings: the Open Charge Map API key goes here |
 | `assets/img/brand/` | Logos from the Ohmpere brand package |
 | `assets/img/icons/` | Favicons and app icons |
@@ -46,7 +46,7 @@ Leave the iCloud Mail records (MX, TXT/SPF, DKIM) alone; they run email on the d
 
 ## Charger map
 
-The map loads public charging sites in South Africa from the Open Charge Map API each time the page opens, and shows only Type 2 (AC) and CCS2 (DC) sites. It needs a free API key:
+The map loads public charging sites in South Africa from the Open Charge Map API each time the page opens, every connector type, split into AC and DC fast charging. It needs a free API key:
 
 1. Sign in at https://openchargemap.org (any account works).
 2. Go to My profile → API keys and create a key.

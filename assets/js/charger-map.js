@@ -1,6 +1,6 @@
 /* South African public charger map.
    Data: Open Charge Map (https://openchargemap.org), CC BY 4.0 and the original data providers.
-   Shows sites with Type 2 (AC) or CCS2 (DC) connectors only. */
+   Shows every public site, split into AC and DC fast charging. */
 (function () {
   "use strict";
   var el = document.getElementById("charger-map");
@@ -17,8 +17,8 @@
     return;
   }
 
-  var TYPE2 = { 25: 1, 1036: 1 };      // Type 2 socket / tethered
-  var CCS2 = { 33: 1 };                // CCS (Type 2)
+  var DC_TYPES = { 2: 1, 27: 1, 32: 1, 33: 1, 1039: 1, 1040: 1 }; // CHAdeMO, Tesla SC, CCS1, CCS2, GB/T DC
+  function isDc(c) { return c.CurrentTypeID === 30 || DC_TYPES[c.ConnectionTypeID] || (c.PowerKW && c.PowerKW >= 40); }
   var STATUS = { 0: "Status unknown", 50: "Reported working", 75: "Partly working", 100: "Reported not working", 150: "Planned", 200: "Removed" };
 
   var map = L.map(el, { scrollWheelZoom: false, zoomControl: true }).setView([-29.0, 25.0], 5);
@@ -52,7 +52,7 @@
       if (s.dc && showDc) { s.marker.addTo(layers.dc); n++; dcN++; }
       else if (!s.dc && showAc) { s.marker.addTo(layers.ac); n++; }
     });
-    if (countEl) countEl.textContent = n + " sites shown, " + dcN + " with CCS2 fast charging";
+    if (countEl) countEl.textContent = n + " sites shown, " + dcN + " with DC fast charging.";
   }
 
   var base = "https://api.openchargemap.io/v3/";
@@ -61,23 +61,23 @@
     fetch(base + "poi/?output=json&countrycode=ZA&maxresults=5000&compact=true&verbose=false&key=" + encodeURIComponent(KEY)).then(function (r) { return r.json(); })
   ]).then(function (res) {
     var ref = res[0], pois = res[1];
-    var ops = {}, prov = {};
+    var ops = {}, prov = {}, ctypes = {};
+    (ref.ConnectionTypes || []).forEach(function (c) { ctypes[c.ID] = c.Title; });
     (ref.Operators || []).forEach(function (o) { ops[o.ID] = o.Title; });
     (ref.DataProviders || []).forEach(function (d) { prov[d.ID] = d.Title; });
 
     pois.forEach(function (p) {
       var a = p.AddressInfo || {};
       if (!a.Latitude || !a.Longitude) return;
-      var conns = (p.Connections || []).filter(function (c) { return TYPE2[c.ConnectionTypeID] || CCS2[c.ConnectionTypeID]; });
-      if (!conns.length) return;
-      var dc = conns.some(function (c) { return CCS2[c.ConnectionTypeID]; });
+      var conns = p.Connections || [];
+      var dc = conns.some(isDc);
       var st = p.StatusTypeID == null ? 0 : p.StatusTypeID;
       if (st === 150 || st === 200) return;
       var ok = st === 50 || st === 75 || st === 0;
       var rows = conns.map(function (c) {
-        var t = CCS2[c.ConnectionTypeID] ? "CCS2 (DC)" : "Type 2 (AC)";
+        var t = (ctypes[c.ConnectionTypeID] || "Connector") + (isDc(c) ? " (DC)" : " (AC)");
         return "<li>" + (c.Quantity ? c.Quantity + " × " : "") + t + (c.PowerKW ? ", " + Math.round(c.PowerKW) + " kW" : "") + "</li>";
-      }).join("");
+      }).join("") || "<li>Connector details not listed</li>";
       var town = [a.AddressLine1, a.Town].filter(Boolean).join(", ");
       var html = "<strong>" + esc(a.Title) + "</strong>" +
         (town ? "<div>" + esc(town) + "</div>" : "") +
