@@ -62,12 +62,15 @@ When you change a CSS or JS file, bump the `?v=` number on its link in the HTML 
 
 ## Surveys
 
-`survey.html` (residents) and `building.html` (trustees and managing agents) send answers to a Google Sheet through a small Google Apps Script. One-time setup:
+`survey.html` (residents) and `building.html` (trustees and managing agents) send answers to a Google Sheet through a small Google Apps Script web app. It is set up and live:
 
-1. Create a Google Sheet called "Ohmpere surveys" in the Ohmpere Google account.
-2. In the sheet: Extensions → Apps Script. Delete the sample code, paste in everything from `tools/survey-sheet.gs`, and save.
-3. Deploy → New deployment → type "Web app". Execute as: Me. Who has access: Anyone. Deploy, and approve the access request.
-4. Copy the web app URL (it ends in `/exec`) into `assets/js/config.js` as `surveyEndpoint: "…"`, bump the `?v=` on `config.js` in `survey.html` and `building.html`, and commit.
+- Sheet: "Ohmpere surveys" in the charmidah@gmail.com Google Drive.
+- Script: "Ohmpere survey receiver" (standalone project at script.google.com, same account). Its code is `tools/survey-sheet.gs`; `SHEET_ID` points it at the sheet.
+- Web app URL: `surveyEndpoint` in `assets/js/config.js`.
+
+To change the script: edit it in the Apps Script editor, then Deploy → Manage deployments → edit (pencil) → Version: New version → Deploy. That keeps the same URL. A brand-new deployment gets a new URL, which then has to go into `config.js` (bump its `?v=` in the HTML files).
+
+To rebuild from scratch: create a sheet, put its ID in `SHEET_ID`, paste the script into a new project at script.google.com, run `setup` once, then Deploy → New deployment → Web app, Execute as: Me, Who has access: Anyone, and approve the access request.
 
 Residents' answers land in the "Residents" tab and building questionnaires in "Buildings". Each question gets its own column; new questions add columns automatically. Until the URL is set, the forms say they aren't accepting answers yet.
 
