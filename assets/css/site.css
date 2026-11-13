@@ -94,11 +94,19 @@ h3 { font-size: var(--step-1); font-stretch: var(--semi); font-variation-setting
 .brand { display: block; width: 190px; flex: none; }
 .brand img { width: 100%; height: auto; }
 .nav { display: flex; align-items: center; gap: clamp(14px, 2vw, 30px); }
-.nav a { text-decoration: none; font-size: var(--step--1); font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; }
+.nav a { text-decoration: none; font-size: var(--step--1); font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; white-space: nowrap; }
 .nav a:hover { border-bottom-color: var(--lime); }
 .nav .btn { min-height: 40px; padding: 0.45em 1em; font-size: var(--step--1); border-bottom-width: 2px; }
 .nav .btn:hover { border-bottom-color: var(--cream); }
+.nav .btn-ghost { border-bottom-color: currentColor; }
+.nav .btn + .btn { margin-left: calc(-1 * clamp(14px, 2vw, 30px) + 10px); }
 .menu-toggle { display: none; }
+
+@media (max-width: 1080px) and (min-width: 901px) {
+  .nav { gap: 16px; }
+  .nav .btn + .btn { margin-left: -6px; }
+  .brand { width: 150px; }
+}
 
 @media (max-width: 900px) {
   .brand { width: 160px; }
@@ -119,6 +127,7 @@ h3 { font-size: var(--step-1); font-stretch: var(--semi); font-variation-setting
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--rule-light); font-size: var(--step-0); }
   .nav a:hover { border-bottom-color: var(--rule-light); color: var(--lime); }
   .nav .btn { margin-top: 18px; justify-content: center; min-height: 48px; }
+  .nav .btn + .btn { margin-left: 0; margin-top: 10px; }
 }
 
 /* ---------- hero ---------- */
