@@ -30,7 +30,9 @@ function doPost(e) {
       var v = data[h] == null ? "" : String(data[h]);
       return /^[=+\-@]/.test(v) ? "'" + v : v; // stop formulas being injected
     });
-    sh.appendRow(row);
+    SpreadsheetApp.flush(); // make sure the header row is written before choosing the next row
+    var next = Math.max(sh.getLastRow(), 1) + 1;
+    sh.getRange(next, 1, 1, row.length).setValues([row]);
     return ContentService.createTextOutput("ok");
   } finally {
     lock.releaseLock();
