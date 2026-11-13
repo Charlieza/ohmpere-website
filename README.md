@@ -12,7 +12,11 @@ Website for Ohmpere: a static site (plain HTML, CSS and JavaScript, no build ste
 | `assets/css/site.css` | All styles. Brand colours are at the top as CSS variables |
 | `assets/js/site.js` | Mobile menu, charge estimator maths, contact form |
 | `assets/js/charger-map.js` | South African charger map (Open Charge Map data, all connector types) |
-| `assets/js/config.js` | Site settings: the Open Charge Map API key goes here |
+| `assets/js/config.js` | Site settings: Open Charge Map API key and survey endpoint |
+| `survey.html` | Residents' survey for apartment blocks (`?b=Complex+Name` fills in the complex) |
+| `building.html` | HoA kit: survey link and message maker, plus the building questionnaire |
+| `assets/js/survey.js` | Survey logic: follow-up questions, validation, sending answers |
+| `tools/survey-sheet.gs` | Google Apps Script that saves survey answers to a Google Sheet |
 | `assets/img/brand/` | Logos from the Ohmpere brand package |
 | `assets/img/icons/` | Favicons and app icons |
 | `assets/img/og.png` | Preview image used when the link is shared |
@@ -55,3 +59,16 @@ The map loads public charging sites in South Africa from the Open Charge Map API
 Without a key the section shows Open Charge Map's own embedded map instead. "Status" is the last reported working state, not live free/busy occupancy; South African networks don't publish occupancy openly.
 
 When you change a CSS or JS file, bump the `?v=` number on its link in the HTML so browsers fetch the new copy.
+
+## Surveys
+
+`survey.html` (residents) and `building.html` (trustees and managing agents) send answers to a Google Sheet through a small Google Apps Script. One-time setup:
+
+1. Create a Google Sheet called "Ohmpere surveys" in the Ohmpere Google account.
+2. In the sheet: Extensions → Apps Script. Delete the sample code, paste in everything from `tools/survey-sheet.gs`, and save.
+3. Deploy → New deployment → type "Web app". Execute as: Me. Who has access: Anyone. Deploy, and approve the access request.
+4. Copy the web app URL (it ends in `/exec`) into `assets/js/config.js` as `surveyEndpoint: "…"`, bump the `?v=` on `config.js` in `survey.html` and `building.html`, and commit.
+
+Residents' answers land in the "Residents" tab and building questionnaires in "Buildings". Each question gets its own column; new questions add columns automatically. Until the URL is set, the forms say they aren't accepting answers yet.
+
+HoAs share a link like `https://ohmpere.com/survey.html?b=Sunbird+Court`; the "Share the residents' survey" box on `building.html` builds it and a message for residents.

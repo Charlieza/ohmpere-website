@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EV charging for apartment blocks: HoA kit | Ohmpere</title>
+<meta name="description" content="For body corporates and HoAs: share a residents' survey on EV charging and tell Ohmpere about your building.">
+<meta property="og:title" content="EV charging for apartment blocks: HoA kit">
+<meta property="og:description" content="Share a five-minute residents' survey and tell us about your building. No cost to the body corporate.">
+<meta property="og:image" content="https://ohmpere.com/assets/img/og.png">
+<link rel="icon" type="image/svg+xml" href="assets/img/icons/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=6">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Ohmpere home"><img src="assets/img/brand/logo-cream-lime.svg" width="850" height="170" alt="Ohmpere"></a>
+    <nav aria-label="Main"><a class="btn btn-lime" href="./#contact" style="min-height:40px;padding:.45em 1em;font-size:var(--step--1)">Contact us</a></nav>
+  </div>
+</header>
+
+<main id="main" class="page on-paper survey-page">
+  <div class="wrap survey-wrap">
+    <h1>EV charging for your apartment block</h1>
+    <p class="survey-lede">Ohmpere is starting to install charging at apartment blocks and complexes, funded and run by us. Before we propose anything, we want to know two things: how many of your residents would use it, and whether your building can carry it.</p>
+
+    <ol class="kit-steps">
+      <li><h2>Share the residents' survey</h2><p>Five minutes, anonymous, and useful even from residents without electric cars.</p></li>
+      <li><h2>Tell us about the building</h2><p>Ten minutes for a trustee or the managing agent. Rough answers are fine.</p></li>
+      <li><h2>Get the results</h2><p>We send you the combined results and say plainly whether chargers make sense for your complex.</p></li>
+    </ol>
+
+    <section class="share-kit" aria-labelledby="share-title">
+      <h2 id="share-title">1. Share the residents' survey</h2>
+      <p>Type your complex's name and we'll make a link that fills it in for residents, plus a message you can paste into email or the residents' WhatsApp group.</p>
+      <div class="q">
+        <label class="q-title" for="kit-name">Complex or building name</label>
+        <input type="text" id="kit-name" autocomplete="off" placeholder="For example: Sunbird Court">
+      </div>
+      <div class="kit-out">
+        <label class="q-title" for="kit-link">Survey link</label>
+        <div class="copy-row">
+          <input type="text" id="kit-link" readonly value="https://ohmpere.com/survey.html">
+          <button class="btn btn-teal" type="button" data-copy="kit-link">Copy link</button>
+        </div>
+        <label class="q-title" for="kit-msg">Message for residents</label>
+        <textarea id="kit-msg" rows="8" readonly></textarea>
+        <div class="copy-row end">
+          <button class="btn btn-teal" type="button" data-copy="kit-msg">Copy message</button>
+          <a class="btn btn-ghost-dark" id="kit-wa" href="#" target="_blank" rel="noopener">Open in WhatsApp</a>
+        </div>
+        <p class="copy-msg" role="status"></p>
+      </div>
+      <p class="survey-fine">We suggest leaving the survey open for two weeks and sending one reminder halfway. Results are most useful once at least a third of households have replied.</p>
+    </section>
+
+    <form id="building" class="survey" data-form="building" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <h2 class="form-h">2. Tell us about the building</h2>
+
+      <section class="q-section">
+        <h3>The complex</h3>
+        <div class="q two-q">
+          <div>
+            <label class="q-title" for="b-complex">Complex name</label>
+            <input type="text" id="b-complex" name="complex" required autocomplete="off">
+            <p class="q-err" hidden>Add the complex name.</p>
+          </div>
+          <div>
+            <label class="q-title" for="b-suburb">Suburb and city</label>
+            <input type="text" id="b-suburb" name="suburb" required autocomplete="address-level2">
+            <p class="q-err" hidden>Add the suburb and city.</p>
+          </div>
+        </div>
+        <div class="q two-q">
+          <div>
+            <label class="q-title" for="b-units">Number of units</label>
+            <input type="number" id="b-units" name="units" min="1" inputmode="numeric" required>
+            <p class="q-err" hidden>Add the number of units.</p>
+          </div>
+          <div>
+            <label class="q-title" for="b-evs">Electric cars or plug-in hybrids you know of <span class="q-hint">A guess is fine</span></label>
+            <input type="number" id="b-evs" name="known_evs" min="0" inputmode="numeric">
+          </div>
+        </div>
+      </section>
+
+      <section class="q-section">
+        <h3>Parking</h3>
+        <div class="q two-q">
+          <div>
+            <label class="q-title" for="b-bays">Total resident bays</label>
+            <input type="number" id="b-bays" name="resident_bays" min="0" inputmode="numeric">
+          </div>
+          <div>
+            <label class="q-title" for="b-visitor">Visitor bays</label>
+            <input type="number" id="b-visitor" name="visitor_bays" min="0" inputmode="numeric">
+          </div>
+        </div>
+        <fieldset class="q">
+          <legend class="q-title">Type of parking <span class="q-hint">Choose all that apply</span></legend>
+          <label class="opt"><input type="checkbox" name="parking_type" value="Basement"> Basement</label>
+          <label class="opt"><input type="checkbox" name="parking_type" value="Garages"> Lock-up garages</label>
+          <label class="opt"><input type="checkbox" name="parking_type" value="Carports or covered bays"> Carports or covered bays</label>
+          <label class="opt"><input type="checkbox" name="parking_type" value="Open bays"> Open bays</label>
+        </fieldset>
+        <fieldset class="q">
+          <legend class="q-title">How are resident bays held?</legend>
+          <label class="opt"><input type="radio" name="bay_rights" value="Exclusive use areas or owned bays"> Exclusive use areas, or bays owned with the unit</label>
+          <label class="opt"><input type="radio" name="bay_rights" value="Allocated by the rules"> Allocated by the body corporate rules</label>
+          <label class="opt"><input type="radio" name="bay_rights" value="Shared"> Shared, first come first served</label>
+          <label class="opt"><input type="radio" name="bay_rights" value="Mixed or not sure"> A mix, or not sure</label>
+        </fieldset>
+      </section>
+
+      <section class="q-section">
+        <h3>Electricity</h3>
+        <fieldset class="q">
+          <legend class="q-title">Who supplies the complex's electricity?</legend>
+          <label class="opt"><input type="radio" name="supplier" value="Municipality"> The municipality</label>
+          <label class="opt"><input type="radio" name="supplier" value="Eskom"> Eskom directly</label>
+          <label class="opt"><input type="radio" name="supplier" value="Not sure"> Not sure</label>
+        </fieldset>
+        <fieldset class="q">
+          <legend class="q-title">How are units metered?</legend>
+          <label class="opt"><input type="radio" name="metering" value="Each unit has its own municipal meter"> Each unit has its own municipal meter</label>
+          <label class="opt"><input type="radio" name="metering" value="Bulk meter with sub-meters"> One bulk meter, with sub-meters per unit</label>
+          <label class="opt"><input type="radio" name="metering" value="Prepaid sub-meters"> One bulk meter, with prepaid sub-meters</label>
+          <label class="opt"><input type="radio" name="metering" value="Not sure"> Not sure</label>
+        </fieldset>
+        <div class="q">
+          <label class="q-title" for="b-supply">Main supply size, if known <span class="q-hint">For example 150 kVA or 3-phase 200 A</span></label>
+          <input type="text" id="b-supply" name="supply_size" autocomplete="off">
+        </div>
+        <fieldset class="q">
+          <legend class="q-title">Does the complex have solar panels or backup power?</legend>
+          <label class="opt"><input type="checkbox" name="backup" value="Solar"> Solar panels</label>
+          <label class="opt"><input type="checkbox" name="backup" value="Batteries"> Batteries</label>
+          <label class="opt"><input type="checkbox" name="backup" value="Generator"> Generator</label>
+          <label class="opt"><input type="checkbox" name="backup" value="None"> None</label>
+        </fieldset>
+        <fieldset class="q">
+          <legend class="q-title">Are there EV chargers in the complex now?</legend>
+          <label class="opt"><input type="radio" name="existing_chargers" value="None"> None</label>
+          <label class="opt"><input type="radio" name="existing_chargers" value="A few residents have their own"> A few residents installed their own</label>
+          <label class="opt"><input type="radio" name="existing_chargers" value="Shared chargers"> Yes, shared chargers</label>
+          <label class="opt"><input type="radio" name="existing_chargers" value="Not sure"> Not sure</label>
+        </fieldset>
+      </section>
+
+      <section class="q-section">
+        <h3>Decisions</h3>
+        <fieldset class="q">
+          <legend class="q-title">Have the trustees discussed EV charging before?</legend>
+          <label class="opt"><input type="radio" name="discussed" value="No"> No</label>
+          <label class="opt"><input type="radio" name="discussed" value="Yes, informally"> Yes, informally</label>
+          <label class="opt"><input type="radio" name="discussed" value="Yes, there is a rule or policy"> Yes, there is a rule or policy on it</label>
+          <label class="opt"><input type="radio" name="discussed" value="Residents have asked"> Residents have asked us about it</label>
+        </fieldset>
+        <div class="q">
+          <label class="q-title" for="b-agm">Month of your next AGM or trustee meeting</label>
+          <input type="month" id="b-agm" name="next_meeting">
+        </div>
+      </section>
+
+      <section class="q-section">
+        <h3>Your details</h3>
+        <fieldset class="q" data-required>
+          <legend class="q-title">Your role</legend>
+          <label class="opt"><input type="radio" name="role" value="Trustee or chairperson"> Trustee or chairperson</label>
+          <label class="opt"><input type="radio" name="role" value="Managing agent"> Managing agent</label>
+          <label class="opt"><input type="radio" name="role" value="HoA committee member"> HoA committee member</label>
+          <label class="opt"><input type="radio" name="role" value="Resident"> Resident</label>
+          <p class="q-err" hidden>Choose your role.</p>
+        </fieldset>
+        <div class="q two-q">
+          <div>
+            <label class="q-title" for="b-name">Your name</label>
+            <input type="text" id="b-name" name="contact_name" required autocomplete="name">
+            <p class="q-err" hidden>Add your name.</p>
+          </div>
+          <div>
+            <label class="q-title" for="b-email">Email</label>
+            <input type="email" id="b-email" name="email" required autocomplete="email">
+            <p class="q-err" hidden>Add a valid email address.</p>
+          </div>
+        </div>
+        <div class="q">
+          <label class="q-title" for="b-phone">Phone <span class="q-hint">Optional</span></label>
+          <input type="tel" id="b-phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="q">
+          <label class="q-title" for="b-notes">Anything else we should know? <span class="q-hint">Access for a site visit, plans, questions</span></label>
+          <textarea id="b-notes" name="notes" rows="4"></textarea>
+        </div>
+        <label class="opt consent"><input type="checkbox" name="consent" value="Yes" data-must> Ohmpere may contact me about EV charging at this complex.</label>
+        <p class="q-err consent-err" hidden>Tick the box so we can reply to you.</p>
+      </section>
+
+      <div class="survey-submit">
+        <button class="btn btn-teal" type="submit">Send building details</button>
+        <p class="form-msg" role="alert"></p>
+        <p class="survey-fine">There's no cost or commitment. We use these details to assess your building and to contact you. Read our <a href="privacy.html">privacy notice</a>.</p>
+      </div>
+    </form>
+
+    <div class="survey-done" id="survey-done" hidden tabindex="-1">
+      <h2>Thank you. We have your building details.</h2>
+      <p>We'll be in touch within five working days. Meanwhile, share the residents' survey above if you haven't yet.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><img src="assets/img/brand/logo-cream-lime.svg" width="850" height="170" alt="Ohmpere"><p>EV charging hubs at the places you already go.</p></div>
+    <div class="legal"><span>&copy; 2026 Ohmpere. All rights reserved.</span><span><a href="privacy.html">Privacy notice</a></span></div>
+  </div>
+</footer>
+<script src="assets/js/config.js?v=5"></script>
+<script src="assets/js/survey.js?v=1" defer></script>
+</body>
+</html>

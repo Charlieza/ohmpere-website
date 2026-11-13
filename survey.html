@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EV charging at your complex: residents' survey | Ohmpere</title>
+<meta name="description" content="A five-minute survey for residents of apartment blocks and complexes about EV charging at home.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="EV charging at your complex: residents' survey">
+<meta property="og:description" content="Five minutes, mostly multiple choice. Your answers help your body corporate decide on charging bays.">
+<meta property="og:image" content="https://ohmpere.com/assets/img/og.png">
+<link rel="icon" type="image/svg+xml" href="assets/img/icons/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=6">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the survey</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Ohmpere home"><img src="assets/img/brand/logo-cream-lime.svg" width="850" height="170" alt="Ohmpere"></a>
+  </div>
+</header>
+
+<main id="main" class="page on-paper survey-page">
+  <div class="wrap survey-wrap">
+    <h1>EV charging at your complex</h1>
+    <p class="survey-lede">Your body corporate is looking at adding electric vehicle charging bays. This survey takes about five minutes. You don't need to own an electric car to answer; we want to hear from everyone.</p>
+    <p class="survey-meta">Run by Ohmpere with your body corporate or HoA. Answers are anonymous unless you choose to leave your email at the end.</p>
+
+    <form id="survey" class="survey" data-form="residents" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <section class="q-section">
+        <h2>Your home</h2>
+
+        <div class="q">
+          <label class="q-title" for="complex">Name of your complex or building</label>
+          <input type="text" id="complex" name="complex" required autocomplete="off">
+          <p class="q-err" hidden>Add the name of your complex.</p>
+        </div>
+
+        <fieldset class="q" data-required>
+          <legend class="q-title">Do you own or rent your unit?</legend>
+          <label class="opt"><input type="radio" name="tenure" value="Owner, I live here"> Owner, I live here</label>
+          <label class="opt"><input type="radio" name="tenure" value="Owner, I rent it out"> Owner, I rent it out</label>
+          <label class="opt"><input type="radio" name="tenure" value="Tenant"> Tenant</label>
+          <p class="q-err" hidden>Choose one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-required>
+          <legend class="q-title">Where do you park?</legend>
+          <label class="opt"><input type="radio" name="parking" value="My own bay in a garage or basement"> My own bay in a garage or basement</label>
+          <label class="opt"><input type="radio" name="parking" value="My own open or covered bay"> My own open or covered bay</label>
+          <label class="opt"><input type="radio" name="parking" value="Shared or visitor bays only"> Shared or visitor bays only</label>
+          <label class="opt"><input type="radio" name="parking" value="I don't park at the complex"> I don't park at the complex</label>
+          <p class="q-err" hidden>Choose one.</p>
+        </fieldset>
+
+        <fieldset class="q" data-show-if="parking=My own bay in a garage or basement|My own open or covered bay">
+          <legend class="q-title">Is there a plug point near your bay?</legend>
+          <label class="opt"><input type="radio" name="bay_power" value="Yes"> Yes</label>
+          <label class="opt"><input type="radio" name="bay_power" value="No"> No</label>
+          <label class="opt"><input type="radio" name="bay_power" value="Not sure"> Not sure</label>
+        </fieldset>
+      </section>
+
+      <section class="q-section">
+        <h2>Your car</h2>
+
+        <fieldset class="q" data-required>
+          <legend class="q-title">Does anyone in your household drive an electric car or a plug-in hybrid?</legend>
+          <label class="opt"><input type="radio" name="ev_now" value="Electric car"> Yes, an electric car</label>
+          <label class="opt"><input type="radio" name="ev_now" value="Plug-in hybrid"> Yes, a plug-in hybrid</label>
+          <label class="opt"><input type="radio" name="ev_now" value="Not yet"> Not yet</label>
+          <p class="q-err" hidden>Choose one.</p>
+        </fieldset>
+
+        <div class="branch" data-show-if="ev_now=Electric car|Plug-in hybrid">
+          <div class="q">
+            <label class="q-title" for="ev_model">Which car? <span class="q-hint">For example BYD Atto 2 or Geely EX2</span></label>
+            <input type="text" id="ev_model" name="ev_model" autocomplete="off">
+          </div>
+
+          <fieldset class="q">
+            <legend class="q-title">Where do you charge now? <span class="q-hint">Choose all that apply</span></legend>
+            <label class="opt"><input type="checkbox" name="charge_where" value="Public chargers"> Public chargers</label>
+            <label class="opt"><input type="checkbox" name="charge_where" value="At work"> At work</label>
+            <label class="opt"><input type="checkbox" name="charge_where" value="Wall plug at home"> A normal wall plug at home</label>
+            <label class="opt"><input type="checkbox" name="charge_where" value="Wall box at home"> A charger (wall box) at home</label>
+            <label class="opt"><input type="checkbox" name="charge_where" value="Friends or family"> At friends or family</label>
+          </fieldset>
+
+          <fieldset class="q">
+            <legend class="q-title">How often do you use public chargers?</legend>
+            <label class="opt"><input type="radio" name="public_freq" value="Never"> Never</label>
+            <label class="opt"><input type="radio" name="public_freq" value="Less than once a week"> Less than once a week</label>
+            <label class="opt"><input type="radio" name="public_freq" value="1 to 2 times a week"> 1 to 2 times a week</label>
+            <label class="opt"><input type="radio" name="public_freq" value="3 or more times a week"> 3 or more times a week</label>
+          </fieldset>
+        </div>
+
+        <div class="branch" data-show-if="ev_now=Not yet">
+          <fieldset class="q">
+            <legend class="q-title">When might your household get an electric car or plug-in hybrid?</legend>
+            <label class="opt"><input type="radio" name="ev_when" value="Within 12 months"> Within 12 months</label>
+            <label class="opt"><input type="radio" name="ev_when" value="In 1 to 2 years"> In 1 to 2 years</label>
+            <label class="opt"><input type="radio" name="ev_when" value="In 3 to 5 years"> In 3 to 5 years</label>
+            <label class="opt"><input type="radio" name="ev_when" value="Not planning to"> Not planning to</label>
+            <label class="opt"><input type="radio" name="ev_when" value="Not sure"> Not sure</label>
+          </fieldset>
+
+          <fieldset class="q" data-max="3">
+            <legend class="q-title">What's holding you back? <span class="q-hint">Choose up to three</span></legend>
+            <label class="opt"><input type="checkbox" name="barriers" value="Price of the car"> The price of the car</label>
+            <label class="opt"><input type="checkbox" name="barriers" value="Nowhere to charge at home"> Nowhere to charge at home</label>
+            <label class="opt"><input type="checkbox" name="barriers" value="Range"> How far it goes on a charge</label>
+            <label class="opt"><input type="checkbox" name="barriers" value="Too few or unreliable public chargers"> Too few or unreliable public chargers</label>
+            <label class="opt"><input type="checkbox" name="barriers" value="Load-shedding"> Load-shedding</label>
+            <label class="opt"><input type="checkbox" name="barriers" value="Haven't looked into it"> I haven't looked into it yet</label>
+            <p class="q-err" hidden>Choose up to three.</p>
+          </fieldset>
+        </div>
+
+        <fieldset class="q">
+          <legend class="q-title">Roughly how far does your household's main car drive in a week?</legend>
+          <label class="opt"><input type="radio" name="km_week" value="Under 100 km"> Under 100 km</label>
+          <label class="opt"><input type="radio" name="km_week" value="100 to 250 km"> 100 to 250 km</label>
+          <label class="opt"><input type="radio" name="km_week" value="250 to 500 km"> 250 to 500 km</label>
+          <label class="opt"><input type="radio" name="km_week" value="Over 500 km"> Over 500 km</label>
+          <label class="opt"><input type="radio" name="km_week" value="No car"> We don't have a car</label>
+        </fieldset>
+      </section>
+
+      <section class="q-section">
+        <h2>Charging at your complex</h2>
+
+        <fieldset class="q scale" data-required>
+          <legend class="q-title">If your complex had chargers, how likely would you be to use them, or to get an electric car because of them?</legend>
+          <div class="scale-row">
+            <label><input type="radio" name="likely" value="1"><span>1</span></label>
+            <label><input type="radio" name="likely" value="2"><span>2</span></label>
+            <label><input type="radio" name="likely" value="3"><span>3</span></label>
+            <label><input type="radio" name="likely" value="4"><span>4</span></label>
+            <label><input type="radio" name="likely" value="5"><span>5</span></label>
+          </div>
+          <div class="scale-ends"><span>Not at all likely</span><span>Very likely</span></div>
+          <p class="q-err" hidden>Choose a number from 1 to 5.</p>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="q-title">Which would suit you best?</legend>
+          <label class="opt"><input type="radio" name="setup" value="Shared bays"> Shared charging bays that residents book or use in turn</label>
+          <label class="opt"><input type="radio" name="setup" value="Charger at my own bay"> A charger at my own bay</label>
+          <label class="opt"><input type="radio" name="setup" value="Either"> Either would work</label>
+          <label class="opt"><input type="radio" name="setup" value="Neither"> Neither</label>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="q-title">How would you prefer to pay?</legend>
+          <label class="opt"><input type="radio" name="pay" value="Pay per use"> Pay for what I use, per kWh</label>
+          <label class="opt"><input type="radio" name="pay" value="Monthly subscription"> A monthly fee with charging included</label>
+          <label class="opt"><input type="radio" name="pay" value="Added to levy"> Added to my levy</label>
+          <label class="opt"><input type="radio" name="pay" value="Not sure"> Not sure</label>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="q-title">What price per kWh seems fair for charging at your complex? <span class="q-hint">Your electricity bill shows what you pay at home now</span></legend>
+          <label class="opt"><input type="radio" name="price_kwh" value="Up to R4"> Up to R4</label>
+          <label class="opt"><input type="radio" name="price_kwh" value="R4 to R5"> R4 to R5</label>
+          <label class="opt"><input type="radio" name="price_kwh" value="R5 to R6"> R5 to R6</label>
+          <label class="opt"><input type="radio" name="price_kwh" value="R6 to R7"> R6 to R7</label>
+          <label class="opt"><input type="radio" name="price_kwh" value="More than R7"> More than R7</label>
+          <label class="opt"><input type="radio" name="price_kwh" value="Not sure"> Not sure</label>
+        </fieldset>
+
+        <fieldset class="q" data-show-if="parking=My own bay in a garage or basement|My own open or covered bay">
+          <legend class="q-title">Would you pay a once-off amount to have a charger installed at your own bay?</legend>
+          <label class="opt"><input type="radio" name="install_pay" value="No"> No</label>
+          <label class="opt"><input type="radio" name="install_pay" value="Up to R5,000"> Up to R5,000</label>
+          <label class="opt"><input type="radio" name="install_pay" value="R5,000 to R10,000"> R5,000 to R10,000</label>
+          <label class="opt"><input type="radio" name="install_pay" value="More than R10,000"> More than R10,000</label>
+          <label class="opt"><input type="radio" name="install_pay" value="Not sure"> Not sure</label>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend class="q-title">Do you have any concerns? <span class="q-hint">Choose all that apply</span></legend>
+          <label class="opt"><input type="checkbox" name="concerns" value="Cost to the body corporate or levies"> Cost to the body corporate or levies</label>
+          <label class="opt"><input type="checkbox" name="concerns" value="Fairness to residents without EVs"> Fairness to residents without electric cars</label>
+          <label class="opt"><input type="checkbox" name="concerns" value="Electrical safety"> Electrical safety</label>
+          <label class="opt"><input type="checkbox" name="concerns" value="Overloading the building's supply"> Overloading the building's electricity supply</label>
+          <label class="opt"><input type="checkbox" name="concerns" value="Parking bays being taken"> Parking bays being taken up</label>
+          <label class="opt"><input type="checkbox" name="concerns" value="None"> No concerns</label>
+        </fieldset>
+
+        <fieldset class="q" data-required>
+          <legend class="q-title">Would you support the body corporate approving chargers if Ohmpere paid for, installed and ran them at no cost to the body corporate?</legend>
+          <label class="opt"><input type="radio" name="support" value="Strongly support"> Strongly support</label>
+          <label class="opt"><input type="radio" name="support" value="Support"> Support</label>
+          <label class="opt"><input type="radio" name="support" value="Neutral"> Neutral</label>
+          <label class="opt"><input type="radio" name="support" value="Oppose"> Oppose</label>
+          <label class="opt"><input type="radio" name="support" value="Strongly oppose"> Strongly oppose</label>
+          <p class="q-err" hidden>Choose one.</p>
+        </fieldset>
+      </section>
+
+      <section class="q-section">
+        <h2>Anything else</h2>
+        <div class="q">
+          <label class="q-title" for="comments">Comments or questions <span class="q-hint">Optional</span></label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+
+        <div class="q">
+          <label class="q-title" for="email">Your email <span class="q-hint">Optional. Leave it if you'd like to hear what happens next</span></label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <p class="q-err" hidden>That email address doesn't look right.</p>
+        </div>
+        <label class="opt consent" data-show-if="email=*"><input type="checkbox" name="consent" value="Yes"> Ohmpere may email me about EV charging at my complex. I can ask to be removed at any time.</label>
+        <p class="q-err consent-err" hidden>Tick the box so we may email you, or clear your email address.</p>
+      </section>
+
+      <div class="survey-submit">
+        <button class="btn btn-teal" type="submit">Send my answers</button>
+        <p class="form-msg" role="alert"></p>
+        <p class="survey-fine">Ohmpere uses these answers to assess EV charging at your complex and shares only combined results with your body corporate, never individual answers. If you leave your email, we use it only as you agreed above. Read our <a href="privacy.html">privacy notice</a>.</p>
+      </div>
+    </form>
+
+    <div class="survey-done" id="survey-done" hidden tabindex="-1">
+      <h2>Thank you. Your answers are in.</h2>
+      <p>Your body corporate will see the combined results once enough residents have replied. If you have questions, email <a href="mailto:hello@ohmpere.com">hello@ohmpere.com</a>.</p>
+      <p><a class="btn btn-teal" href="./">See what Ohmpere does</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><img src="assets/img/brand/logo-cream-lime.svg" width="850" height="170" alt="Ohmpere"><p>EV charging hubs at the places you already go.</p></div>
+    <div class="legal"><span>&copy; 2026 Ohmpere. All rights reserved.</span><span><a href="privacy.html">Privacy notice</a></span></div>
+  </div>
+</footer>
+<script src="assets/js/config.js?v=5"></script>
+<script src="assets/js/survey.js?v=1" defer></script>
+</body>
+</html>
