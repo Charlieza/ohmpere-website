@@ -555,3 +555,4 @@ form label { display: block; font-weight: 600; margin-bottom: 6px; }
 .apartments .actions { align-self: center; }
 .survey fieldset.q > legend { float: left; width: 100%; }
 .survey fieldset.q > legend + * { clear: both; }
+.other-field { margin: 4px 0 0 32px; max-width: 420px; }

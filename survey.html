@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=6">
+<link rel="stylesheet" href="assets/css/site.css?v=7">
 </head>
 <body>
 <a class="skip" href="#main">Skip to the survey</a>
@@ -104,12 +104,31 @@
 
         <div class="branch" data-show-if="ev_now=Not yet">
           <fieldset class="q">
-            <legend class="q-title">When might your household get an electric car or plug-in hybrid?</legend>
-            <label class="opt"><input type="radio" name="ev_when" value="Within 12 months"> Within 12 months</label>
-            <label class="opt"><input type="radio" name="ev_when" value="In 1 to 2 years"> In 1 to 2 years</label>
-            <label class="opt"><input type="radio" name="ev_when" value="In 3 to 5 years"> In 3 to 5 years</label>
-            <label class="opt"><input type="radio" name="ev_when" value="Not planning to"> Not planning to</label>
-            <label class="opt"><input type="radio" name="ev_when" value="Not sure"> Not sure</label>
+            <legend class="q-title">Are you considering an electric car or plug-in hybrid?</legend>
+            <label class="opt"><input type="radio" name="considering_ev" value="Yes"> Yes</label>
+            <label class="opt"><input type="radio" name="considering_ev" value="No"> No</label>
+            <label class="opt"><input type="radio" name="considering_ev" value="Not sure"> Not sure</label>
+          </fieldset>
+
+          <fieldset class="q">
+            <legend class="q-title">Would you consider one if there were a charger at your complex?</legend>
+            <label class="opt"><input type="radio" name="consider_if_charger" value="Yes"> Yes</label>
+            <label class="opt"><input type="radio" name="consider_if_charger" value="Maybe"> Maybe</label>
+            <label class="opt"><input type="radio" name="consider_if_charger" value="No"> No</label>
+          </fieldset>
+
+          <fieldset class="q" data-show-if="consider_if_charger=Yes|Maybe">
+            <legend class="q-title">If a charger were installed at your complex, how soon would you buy an electric car or plug-in hybrid?</legend>
+            <label class="opt"><input type="radio" name="buy_when" value="Immediately"> Immediately</label>
+            <label class="opt"><input type="radio" name="buy_when" value="Within weeks"> Within weeks</label>
+            <label class="opt"><input type="radio" name="buy_when" value="Within months"> Within months</label>
+            <label class="opt"><input type="radio" name="buy_when" value="Within years"> Within years</label>
+            <label class="opt"><input type="radio" name="buy_when" value="Other"> Other</label>
+            <div class="other-field" data-show-if="buy_when=Other">
+              <label class="visually-hidden" for="buy_when_other">How soon? Please specify</label>
+              <input type="text" id="buy_when_other" name="buy_when_other" placeholder="Please specify" required autocomplete="off">
+              <p class="q-err" hidden>Tell us how soon, or pick another answer.</p>
+            </div>
           </fieldset>
 
           <fieldset class="q" data-max="3">
@@ -244,6 +263,6 @@
   </div>
 </footer>
 <script src="assets/js/config.js?v=5"></script>
-<script src="assets/js/survey.js?v=1" defer></script>
+<script src="assets/js/survey.js?v=3" defer></script>
 </body>
 </html>

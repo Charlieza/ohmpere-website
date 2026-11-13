@@ -109,6 +109,15 @@
     return firstBad;
   }
 
+  // Clear a question's error as soon as it gets an answer
+  function clearErr(e) {
+    var holder = e.target.closest(".two-q > div") || e.target.closest(".q");
+    if (holder && holder.classList.contains("has-err") && !holder.hasAttribute("data-max")) setErr(holder, false);
+    if (e.target.name === "consent" || e.target.name === "email") { var ce = $(".consent-err", form); if (ce) ce.hidden = true; }
+  }
+  form.addEventListener("input", clearErr);
+  form.addEventListener("change", clearErr);
+
   // Limit "choose up to three" live, with a gentle message
   $all("fieldset[data-max]", form).forEach(function (f) {
     f.addEventListener("change", function () { setErr(f, $all("input:checked", f).length > +f.getAttribute("data-max")); });
